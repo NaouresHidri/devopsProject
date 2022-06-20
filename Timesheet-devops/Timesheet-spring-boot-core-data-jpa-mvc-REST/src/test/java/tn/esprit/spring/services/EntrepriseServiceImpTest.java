@@ -47,7 +47,7 @@ public class EntrepriseServiceImpTest {
 
     @Test
     public void testAjouterDepartement() {
-        log.debug("methode ajouter Departement");
+        log.debug("methode ajouterDepartement");
         try {
             // test insert with id value
             // id value is sequence, auto incremented
@@ -82,5 +82,13 @@ public class EntrepriseServiceImpTest {
 
         }
     }
+
+    @Test
+    public void testGetAllDepartementsNamesByEntreprise() {
+        log.debug("method GetAllDepartementNAmesByEntreprise");
+        List<String> depNames = es.getAllDepartementsNamesByEntreprise(1);
+        assertNotNull(depNames);
+    }
+
 
 }

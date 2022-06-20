@@ -1,6 +1,6 @@
 package tn.esprit.spring.controller;
 
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class IControllerEntrepriseImpl{
 	{
 		ientrepriseservice.deleteEntrepriseById(entrepriseId);
 	}
-	public Entreprise getEntrepriseById() {
+	public Entreprise getEntrepriseById(int entrepriseId) {
 
 		return ientrepriseservice.getEntrepriseById(1);
 	}
@@ -41,7 +41,9 @@ public class IControllerEntrepriseImpl{
 		return ientrepriseservice.ajouterDepartement(dep);
 	}
 	
-
+	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
+		return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
+	}
 
 	public void deleteDepartementById(int depId) {
 		ientrepriseservice.deleteDepartementById(depId);
