@@ -17,7 +17,7 @@ import tn.esprit.spring.entities.Entreprise;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class EntrepriseServiceImpTest {
+public class EntrepriseServiceImplTest {
 
     @Autowired
     IEntrepriseService es;
@@ -26,11 +26,11 @@ public class EntrepriseServiceImpTest {
     Integer idEntreprise;
     Integer idDepartment;
 
-    private static final Logger log = LogManager.getLogger(EntrepriseServiceImpTest.class);
+    private static final Logger log = LogManager.getLogger(EntrepriseServiceImplTest.class);
 
     @Test
     public void testAjouterEntreprise() {
-        log.debug("method ajouterEntreprise");
+        log.debug("methode ajouterEntreprise");
         try {
             // test insert with id value
             // id value is sequence, auto incremented
@@ -40,7 +40,7 @@ public class EntrepriseServiceImpTest {
             idObj = es.ajouterEntreprise(entreprise);
             assertNotNull(idObj);
         } catch (Exception e) {
-            log.error("The method ajouterEntreprise fails :" + e);
+            log.error("erreur methode ajouterEntreprise :" + e);
 
         }
     }
@@ -57,14 +57,14 @@ public class EntrepriseServiceImpTest {
             idObj = es.ajouterDepartement(dp);
             assertNotNull(idObj);
         } catch (Exception e) {
-            log.error("The method ajouterDepartement fails :" + e);
+            log.error("erreur methode ajouterDepartement :" + e);
 
         }
     }
 
     @Test
     public void testAffecterDepartementAEntreprise() {
-        log.debug("method AffecterDepartementAEntreprise");
+        log.debug("methode AffecterDepartementAEntreprise");
         try {
             log.debug("create Entreprise instance");
             Entreprise entreprise = new Entreprise("Entreprise_test", "Raison_test");
@@ -78,14 +78,14 @@ public class EntrepriseServiceImpTest {
 
             es.affecterDepartementAEntreprise(1, 1);
         } catch (Exception e) {
-            log.error("The method ajouterDepartement fails:" + e);
+            log.error("erreur methode ajouterDepartement :" + e);
 
         }
     }
 
     @Test
     public void testGetAllDepartementsNamesByEntreprise() {
-        log.debug("method GetAllDepartementNAmesByEntreprise");
+        log.debug("methode GetAllDepartementNAmesByEntreprise");
         List<String> depNames = es.getAllDepartementsNamesByEntreprise(1);
         assertNotNull(depNames);
     }
